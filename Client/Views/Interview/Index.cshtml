@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewData["Title"] = "Interview";
+    Layout = "~/Views/Layouts/Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="text-themecolor m-b-0 m-t-0">@ViewData["Title"]</h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active">@ViewData["Title"]</li>
+            </ol>
+        </div>
+    </div>
+    @* star card *@
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Interview</h2>
+                    <!-- Tab -->
+                    <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+                        @*Tab Interview*@
+                        <li class="nav-item">
+                            <a class="nav-link active" id="interview-tab" data-toggle="tab" href="#interview" role="tab" aria-controls="interview" aria-selected="true"><i class="far fa-building"></i> Data Interview</a>
+                        </li>
+                        @*Tab Interview Employee*@
+                        <li class="nav-item">
+                            <a class="nav-link" id="interviewemp-tab" data-toggle="tab" href="#interviewemp" role="tab" aria-controls="interviewemp" aria-selected="false"><i class="fa fa-user"></i> Employee Interview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false"><i class="fa fa-history"></i> History</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="interview" role="tabpanel" aria-labelledby="interview-tab">
+                            <div class="d-flex justify-content-end mt-3">
+                                <button class="btn pull-right hidden-sm-down btn-success" id="BtnAdd" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-plus-circle"></i> Add Interview</button>
+                            </div>
+                            <div class="table-responsive mt-3">
+                                <table id="Interview" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Title</th>
+                                            <th>Company Name</th>
+                                            <th>Email Interviewer</th>
+                                            <th>Interviewer</th>
+                                            <th>Address Interview</th>
+                                            <th>Interview Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="interviewemp" role="tabpanel" aria-labelledby="interviewemp-tab">
+                            <div class="table-responsive m-t-40">
+                                <table id="InterviewEmp" class="table table-bordered table-striped" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Employee Name</th>
+                                            <th>Company Name</th>
+                                            <th>Interviewer</th>
+                                            <th>Interview Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            
+                        </div>
+
+                        <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                            <div class="table-responsive m-t-40">
+                                <table id="History" class="table table-bordered table-striped" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Employee Name</th>
+                                            <th>Company Name</th>
+                                            <th>Interviewer</th>
+                                            <th>Interview Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal content-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Interview</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Title">Title :</label>
+                        <input type="text" class="form-control" id="Title" placeholder="Title">
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="CompanyOption">Company Name :</label>
+                            <select class="form-control" id="CompanyOption"></select>
+                        </div>
+
+                        <div class="col">
+                            <label for="Division">Division :</label>
+                            <input type="text" class="form-control" id="Division" placeholder="Division">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="JobDesk">Job Desk :</label>
+                            <input type="text" class="form-control" id="JobDesk" placeholder="Job Desk">
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="InterviewDate">Interview Date :</label>
+                                <input type="date" class="form-control" id="InterviewDate">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row form-group mb-0">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="Interviewer">Interviewer Name :</label>
+                                <input type="text" class="form-control" id="Interviewer" placeholder="Interviewer Name">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="EmailInterviewer">Email Interviewer</label>
+                            <input type="email" class="form-control" id="EmailInterviewer" placeholder="Email Interviewer">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Address">Address Interview :</label>
+                        <textarea class="form-control" id="Address" placeholder="Address" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" class="form-control" id="Id">
+                <button id="UpdateBtn" type="button" onclick="Edit()" class="btn btn-success">Update</button>
+                <button id="SaveBtn" type="button" onclick="Save()" class="btn btn-success">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal content-->
+<div id="ModalAssign" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Assign Employee</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="EmployeeOption">Employee :</label>
+                        <select class="form-control" id="EmployeeOption"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Title">Title :</label>
+                        <input class="form-control" id="Title2" placeholder="Title" disabled>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="CompanyOption">Company Name :</label>
+                            <select class="form-control" id="CompanyOption2" disabled></select>
+                        </div>
+
+                        <div class="col">
+                            <label for="Division">Division :</label>
+                            <input class="form-control" id="Division2" placeholder="Division" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row form-group mb-0">
+                        <div class="col">
+                            <label for="JobDesk">Job Desk :</label>
+                            <input class="form-control" id="JobDesk2" placeholder="Job Desk" disabled>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="InterviewDate">Interview Date :</label>
+                                <input type="date" class="form-control" id="InterviewDate2" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Address">Address :</label>
+                        <textarea class="form-control" id="Address2" placeholder="Address" rows="3" disabled></textarea>
+                    </div>
+                </form>
+                <input type="hidden" id="InterviewId">
+                <input type="hidden" id="UserId">
+                <input type="hidden" id="FullName">
+                <input type="hidden" id="Email_User">
+                <input type="hidden" id="CompanyName">
+                <input type="hidden" id="InterviewDates">
+                <input type="hidden" id="AddressInterview">
+                <input type="hidden" id="Interviewers">
+                <input type="hidden" id="Email_Interviewer">
+            </div>
+            <div class="modal-footer">
+                <button id="BtnAssign" type="button" onclick="Assign()" class="btn btn-success">Save Assign</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Script/Interview.js"></script>
+}

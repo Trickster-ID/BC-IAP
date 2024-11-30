@@ -1,0 +1,15 @@
+.vs/
+.vscode/
+bin/
+obj/
+Client/appsettings.json
+Client/Client.csproj
+Client/appsettings.Development.json
+Client/Client.csproj.user
+Client/Startup.cs
+Project_IAP/Startup.cs
+Project_IAP/Migrations/MyContextModelSnapshot.cs
+Project_IAP/Migrations/20200511085107_AddallModel.Designer.cs
+Project_IAP/Migrations/20200511085107_AddallModel.cs
+Project_IAP/appsettings.Development.json
+Project_IAP/appsettings.json

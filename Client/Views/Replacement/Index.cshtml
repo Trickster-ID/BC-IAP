@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layouts/Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="text-themecolor m-b-0 m-t-0">@ViewData["Title"]</h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active">@ViewData["Title"]</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h2>Replacement</h2>
+                        </div>
+                        @*<div>
+                            <button class="btn pull-right hidden-sm-down btn-success" id="BtnAdd" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-plus-circle"></i> Add Replacement</button>
+                        </div>*@
+                    </div>
+                    <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="Replacement-tab" data-toggle="tab" href="#replacement" role="tab" aria-controls="replacement" aria-selected="true"><i class="far fa-building"></i> Replacement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="History-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false"><i class="fa fa-history"></i> History</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="replacement" role="tabpanel" aria-labelledby="interview-tab">
+                            <div class="table-responsive m-t-40">
+                                <table id="Replacement" class="table table-bordered table-striped" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Employee Name</th>
+                                            <th>Replacement Reason</th>
+                                            <th>Detail</th>
+                                            <th>Replacement Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="placement-tab">
+                            <div class="table-responsive m-t-40">
+                                <table id="History" class="table table-striped" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Employee Name</th>
+                                            <th>Replacement Reason</th>
+                                            <th>Detail</th>
+                                            <th>Replacement Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Replacement</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="Id">
+                        <input type="hidden" class="form-control" id="Email">
+                        <input type="hidden" class="form-control" id="FullName">
+                        <input type="hidden" class="form-control" id="RepDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="EmployeeOption">Employee Name :</label>
+                        <div class="form-group">
+                            <select class="form-control" id="EmployeeOption"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Replacement Reason :</label>
+                        <input class="form-control" id="ReplacementReason" placeholder="ReplacementReason">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Detail :</label>
+                        <textarea type="text" class="form-control" id="Detail" placeholder="Detail"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Replacement Date :</label>
+                        <input type="date" class="form-control" id="ReplacementDate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="UpdateBtn" type="button" onclick="Edit()" class="btn btn-success">Update</button>
+                    <button id="SaveBtn" type="button" onclick="Save()" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Script/Replacement.js"></script>
+}
